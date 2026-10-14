@@ -8,17 +8,17 @@ The written guide to episode 1 of SQL from Zero. Keep it open next to the video,
 
 1. [Intro](#intro) (0:00 in the video)
 2. [What is a database?](#what-is-a-database) (0:31 in the video)
-3. [What is SQL?](#what-is-sql) (1:06 in the video)
-4. [Why DuckDB?](#why-duckdb) (1:38 in the video)
-5. [The plan](#the-plan) (2:07 in the video)
-6. [Open PowerShell](#open-powershell) (2:31 in the video)
-7. [Meet PowerShell](#meet-powershell) (3:10 in the video)
-8. [Install DuckDB](#install-duckdb) (4:51 in the video)
-9. [Your first query](#your-first-query) (6:39 in the video)
-10. [When something goes wrong](#when-something-goes-wrong) (8:19 in the video)
-11. [Make your first table](#make-your-first-table) (9:44 in the video)
-12. [Recap](#recap) (12:00 in the video)
-13. [Next week](#next-week) (12:46 in the video)
+3. [What is SQL?](#what-is-sql) (1:16 in the video)
+4. [Why DuckDB?](#why-duckdb) (1:48 in the video)
+5. [The plan](#the-plan) (2:17 in the video)
+6. [Open PowerShell](#open-powershell) (2:41 in the video)
+7. [Meet PowerShell](#meet-powershell) (3:20 in the video)
+8. [Install DuckDB](#install-duckdb) (5:01 in the video)
+9. [Your first query](#your-first-query) (6:49 in the video)
+10. [When something goes wrong](#when-something-goes-wrong) (8:29 in the video)
+11. [Make your first table](#make-your-first-table) (9:54 in the video)
+12. [Recap](#recap) (13:05 in the video)
+13. [Next week](#next-week) (13:52 in the video)
 
 ## Intro
 
@@ -28,12 +28,17 @@ You don't need any experience. You don't even need to have opened PowerShell bef
 
 ## What is a database?
 
-- Data lives in **tables**, a bit like spreadsheets
-- Each **column** is one kind of fact: a name, a price, a date
-- Each **row** is one thing: one customer, one order
-- Built for lots of data, and for questions about it
+![Screenshot from the video](img/scene-02.png)
 
 So, what is a database? A database is a place to keep data, organized so you can find things fast.
+
+Inside a database, data lives in tables. A table looks a bit like a spreadsheet. Here's a small one, about pets. You'll build this exact table yourself, later in this video.
+
+Each column holds one kind of fact. This column holds what kind of animal each pet is.
+
+And each row is one thing. Here, each row is one pet. This one is Mia, a cat who is five.
+
+Unlike a spreadsheet, a database is built to hold huge amounts of data, and to answer questions about it quickly.
 
 Almost every app and website you use keeps its data in a database.
 
@@ -415,6 +420,14 @@ CREATE TABLE pets (name TEXT, animal TEXT, age INTEGER);
 
 DuckDB doesn't print anything. No message means it worked.
 
+![Screenshot from the video](img/scene-11.png)
+
+Here's what just happened inside the database. CREATE TABLE made a new table called pets, with three columns: name, animal, and age.
+
+Under each name is the column's type. We typed TEXT, which DuckDB calls VARCHAR. Both mean text. And INTEGER means a whole number.
+
+The table has no rows yet. It's like a spreadsheet with only the headings filled in.
+
 Now let's add some rows: one pair of parentheses for each row, with a comma between them. The values go in the same order as the columns: name, animal, age.
 
 ```sql
@@ -426,6 +439,12 @@ You can add more rows any time. Here's one more.
 ```sql
 INSERT INTO pets VALUES ('Tom', 'cat', 2);
 ```
+
+![Screenshot from the video](img/scene-13.png)
+
+And here's what INSERT did. The first one added two rows, one for each pair of parentheses. Each value went into its own column, in order.
+
+The second INSERT added one more row. Now the table holds three pets.
 
 Now let's see the whole table. The star means every column:
 
@@ -448,7 +467,7 @@ You'll see:
 
 There it is. Three columns: name, animal, and age. And three rows, one for each pet.
 
-Notice that TEXT shows up as varchar, and INTEGER as int32. Those are just DuckDB's names for the same types.
+In results, DuckDB writes the types in short: varchar for text, and int32 for whole numbers.
 
 If you only want some of the columns, name them, with a comma in between.
 
@@ -468,6 +487,12 @@ You'll see:
 │ Tom     │     2 │
 └─────────┴───────┘
 ```
+
+![Screenshot from the video](img/scene-15.png)
+
+Here's what that SELECT did. It read the name and age columns, and gave us back a new table with just those two.
+
+The pets table itself didn't change. A SELECT like this only reads your data. It doesn't change it.
 
 Now leave DuckDB:
 
