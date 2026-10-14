@@ -15,10 +15,10 @@ The written guide to episode 1 of SQL from Zero. Keep it open next to the video,
 7. [Meet PowerShell](#meet-powershell) (3:10 in the video)
 8. [Install DuckDB](#install-duckdb) (4:51 in the video)
 9. [Your first query](#your-first-query) (6:39 in the video)
-10. [When something goes wrong](#when-something-goes-wrong) (8:09 in the video)
-11. [Make your first table](#make-your-first-table) (9:33 in the video)
-12. [Recap](#recap) (11:33 in the video)
-13. [Next week](#next-week) (12:08 in the video)
+10. [When something goes wrong](#when-something-goes-wrong) (8:19 in the video)
+11. [Make your first table](#make-your-first-table) (9:44 in the video)
+12. [Recap](#recap) (12:00 in the video)
+13. [Next week](#next-week) (12:46 in the video)
 
 ## Intro
 
@@ -258,6 +258,8 @@ See how the prompt changed? This is DuckDB's prompt now, not PowerShell's. memor
 > memory = the database you're in  
 > D      = DuckDB is ready  
 
+Today is just a first taste of SQL. You don't need to memorize anything. Every part we use today gets its own episode later, where we go slowly.
+
 Let's ask our first question. Type this, and press Enter:
 
 ```sql
@@ -399,6 +401,12 @@ Enter ".help" for usage hints.
 
 The prompt now says shop. That's our database, and it's saved in a file in your user folder.
 
+Next, we'll make a table and put some rows in it, with two new commands: CREATE TABLE and INSERT. Don't worry about remembering how they work today. Later episodes cover both properly, step by step. For now, just type along and watch what happens.
+
+> **New today: CREATE TABLE, INSERT**  
+> Just type along for now.  
+> Later episodes cover them properly.  
+
 Let's make a table for pets. After CREATE TABLE pets come the columns, in parentheses, with a comma between them: name, which is TEXT, animal, also TEXT, and age, which is an INTEGER (a whole number). Type it exactly like this:
 
 ```sql
@@ -515,7 +523,9 @@ Leave DuckDB, and you're done:
 - `SELECT ... FROM` asks a question, and `;` ends it
 - `.exit` leaves DuckDB
 
-Before next week, try this. Open shop dot duckdb, add a pet of your own, and select all the pets again.
+If CREATE TABLE and INSERT still feel new, that's completely normal. We'll come back to each of them, slowly, in the coming episodes.
+
+Before next week, try this. Open shop.duckdb again. Copy one of the INSERT lines above, and change it to add a pet of your own. Then select all the pets again.
 
 ## Next week
 
